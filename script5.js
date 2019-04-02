@@ -1,16 +1,21 @@
 //===Uppercase every word==//
 
-function upWord(word){
-    let uWord = word.toString();
-    uWord[0].toUpperCase();
-    for (var i = 0; i < uWord.length; i++){
-        if (uWord[i] == ' ')
-            uWord[i + 1].toUpperCase();
+function upWord(sentence){
+
+    uWord = sentence;
+
+    new_sentence = uWord[0].toUpperCase();
+
+    for (var i = 1; i < uWord.length; i++){
+        if (uWord[i] == ' '){
+            new_sentence = new_sentence.concat(uWord[i]);
+            var i = i + 1;
+            new_sentence = new_sentence.concat(uWord[i].toUpperCase());
+        } else{
+            new_sentence = new_sentence.concat(uWord[i]);
+        }
     }
-    return uWord.join('');
+    return new_sentence;
 }
 
 console.log(upWord('this is a very long string'));
-
-
-//not getting it
